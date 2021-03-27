@@ -1,0 +1,22 @@
+body{
+margin: 0;
+text-align: center;
+color: #4d4643;
+}
+.header{
+width: 100%;
+background-color: #1bbd36;
+font-family: helvetica;
+}
+.button_home{
+margin-top: 7px;
+width: 15%;
+font-size: 15px;
+color: solid grey;
+}
+.name_input, .email_input, .password_input, .passwordtwo_input{
+width: 50%;
+}
+input[type = text], input[type = password], input[type = email]{
+border: 3px solid lightblue;
+}

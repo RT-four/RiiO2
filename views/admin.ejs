@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Шрек</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link rel="stylesheet" href="admin_login_css.css">
+
+  <!-- Favicons -->
+  <link href="frontend/assets/img/favicon.png" rel="icon">
+  <link href="frontend/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/frontend/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/frontend/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/frontend/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/frontend/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/frontend/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/frontend/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/frontend/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/frontend/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/frontend/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="/frontend/index.html"><span>Ri</span>iO</a></h1>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+
+          <li><a href="registration" class="active">Регистрация</a></li>
+
+          <li><a href="/frontend/index.html" class="active">Alabama</a></li>
+
+          <li class="dropdown"><a href="#"><span>ПРО RiiO</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/frontend/pages/about.html">О нас</a></li>
+              <li><a href="/frontend/pages/team.html">Команда</a></li>
+            </ul>
+          </li>
+
+          <li><a href="/frontend/pages/services.html">Dark dreams</a></li>
+          <li><a href="/frontend/pages/portfolio.html">Portfolio</a></li>
+          <li><a href="/frontend/pages/pricing.html">Pricing</a></li>
+          <li><a href="/frontend/pages/blog.html">About Alabama</a></li>
+          <li><a href="/frontend/pages/contact.html">N-word pass</a></li>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links d-flex">
+        <a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+<div class="container-fluid cont">
+  <h1>Регистрация</h1>
+
+  <h3 class="enter_info">Введите ваши данные для входа.</h3>
+
+  
+  <ul>
+    <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+    <li><%= error.message %></li>
+    <% }) %> <% } %>
+  </ul>
+
+  <ul>
+    <% if(messages.success_msg) { %>
+    <li><%= messages.success_msg %></li>
+    <% } %>
+  </ul>
+
+  <ul>
+    <% if (messages.error) { %>
+    <li><%= messages.error %></li>
+    <% } %>
+  </ul>
+  <form action="/users/register" method="POST">
+    <div>
+      <input class="name_input" type="text" id="name" name="name" placeholder="Имя.." required />
+    </div>
+    <div>
+      <input class="email_input"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email.."
+        required
+      />
+    </div>
+    <div>
+      <input class="password_input"
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Пароль.."
+        required
+      />
+    </div>
+    <div>
+      <input class="passwordtwo_input"
+        type="password"
+        id="password2"
+        name="password2"
+        placeholder="Повторите пароль.."
+        required
+      />
+    </div>
+    <div>
+      <input class="register_button" type="submit" value="Зарегистрироваться !" />
+    </div>
+  </form>
+</div>
+
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>RiiO</h3>
+            <p>
+              A108 Some Street <br>
+              Alabama, AL 324542<br>
+              United States <br><br>
+              <strong>Phone:</strong> +77777777777<br>
+              <strong>Email:</strong> info@somethingRiiO.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Полезные ссылки</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Домой</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">О нас</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Услуги</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Наши услуги</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Подпишитесь на нашу расылку обновлений</h4>
+            <p>Введите ваш email для получения новейшей информации о RiiO</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Подписаться">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>RiiO</span></strong>. All Rights Reserved
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/frontend/assets/vendor/aos/aos.js"></script>
+  <script src="/frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/frontend/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/frontend/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/frontend/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/frontend/assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/frontend/assets/js/main.js"></script>
+
+</body>
+
+</html>
