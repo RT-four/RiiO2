@@ -158,23 +158,26 @@ app.get("/users/logout", (req, res) => {
 app.get("/admin", (req, res) => {
   res.render("admin");
 });
+app.get("/users/admin", (req, res) => {
+  res.render("admin");
+});
 
 app.post("/users/admin", async (req, res) => {
-  let { name, email, status, group, password, password2 } = req.body;
+  let { name, email, password, password2, status, stdgroup } = req.body;
 
   let errors = [];
 
   console.log({
     name,
     email,
-    status,
-    group,
     password,
-    password2
+    password2,
+    status,
+    stdgroup
 
   });
 
-  if (!name || !email || !status || !group || !password || !password2 ) {
+  if (!name || !email || !password || !password2 || !status || !stdgroup ) {
     errors.push({ message: "Please enter all fields" });
   }
 
@@ -208,17 +211,17 @@ app.post("/users/admin", async (req, res) => {
           });
         } else {
           pool.query(
-            `INSERT INTO users (name, email, password, status, group)
+            `INSERT INTO users (name, email, password, status, stdgroup)
                 VALUES ($1, $2, $3, $4, $5)
                 RETURNING id, password`,
-            [name, email, hashedPassword, status, group],
+            [name, email, hashedPassword, status, stdgroup],
             (err, results) => {
               if (err) {
                 throw err;
               }
               console.log(results.rows);
               req.flash("success_msg", "Новый пользователь добавлен!");
-              res.redirect("/users/login");
+              res.redirect("/users/admin");
             }
           );
         }
@@ -226,6 +229,74 @@ app.post("/users/admin", async (req, res) => {
     );
   }
 });
+
+// app.post("/users/admin", async (req, res) => {
+//   let { name, email, status, group, password, password2 } = req.body;
+
+//   let errors = [];
+
+//   console.log({
+//     name,
+//     email,
+//     status,
+//     group,
+//     password,
+//     password2
+
+//   });
+
+//   if (!name || !email || !status || !group || !password || !password2 ) {
+//     errors.push({ message: "Please enter all fields" });
+//   }
+
+//   if (password.length < 6) {
+//     errors.push({ message: "Password must be a least 6 characters long" });
+//   }
+
+//   if (password !== password2) {
+//     errors.push({ message: "Passwords do not match" });
+//   }
+
+//   if (errors.length > 0) {
+//     res.render("admin");
+//   } else {
+//     hashedPassword = await bcrypt.hash(password, 10);
+//     console.log(hashedPassword);
+//     // Validation passed
+//     pool.query(
+//       `SELECT * FROM users
+//         WHERE email = $1`,
+//       [email],
+//       (err, results) => {
+//         if (err) {
+//           console.log(err);
+//         }
+//         console.log(results.rows);
+
+//         if (results.rows.length > 0) {
+//           return res.render("register", {
+//             message: "Email already registered"
+//           });
+//         } else {
+//           pool.query(
+//             `INSERT INTO users (name, email, password, status, group)
+//                 VALUES ($1, $2, $3, $4, $5)
+//                 RETURNING id, password`,
+//             [name, email, hashedPassword, status, group],
+//             (err, results) => {
+//               if (err) {
+//                 throw err;
+//               }
+//               console.log(results.rows);
+//               req.flash("success_msg", "Новый пользователь добавлен!");
+//               res.redirect("/users/login");
+//             }
+//           );
+//         }
+//       }
+//     );
+//   }
+// });
 
 app.post("/users/register", async (req, res) => {
   let { name, email, password, password2 } = req.body;
