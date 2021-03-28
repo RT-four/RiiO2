@@ -124,11 +124,11 @@ app.post("/compose", function(req, res){
 });
 
 app.get("/registration", (req, res) => {
-  res.render("index");  
+  res.render("login");  
 });
 
 app.get("/users/registration", (req, res) => {
-  res.render("index");  
+  res.render("login");  
 });
 
 app.get("/users/index", (req, res) => {
