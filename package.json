@@ -27,11 +27,14 @@
     "express-session": "^1.17.1",
     "fs": "0.0.1-security",
     "https": "^1.0.0",
+    "io": "^1.0.3",
     "lodash": "^4.17.21",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg": "^8.5.1",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "socker": "^0.1.6",
+    "socket.io": "^4.0.0"
   }
 }
